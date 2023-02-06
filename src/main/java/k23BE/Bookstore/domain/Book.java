@@ -17,16 +17,24 @@ public class Book {
 	public Book() {
 		super();
 	}
-	
+
 	public Book(String title, String author, String isbn, double price, int publicationYear) {
-		super();	
+		super();
 		this.title = title;
 		this.author = author;
 		this.isbn = isbn;
 		this.price = price;
 		this.publicationYear = publicationYear;
 	}
-	
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -57,12 +65,13 @@ public class Book {
 	public void setPublicationYear(int publicationYear) {
 		this.publicationYear = publicationYear;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Book [title=" + title + ", author=" + author + ", isbn=" + isbn + ", price=" + price
+		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", isbn=" + isbn + ", price=" + price
 				+ ", publicationYear=" + publicationYear + "]";
 	}
+	
 
 
 }
