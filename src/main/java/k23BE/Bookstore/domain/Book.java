@@ -1,17 +1,33 @@
 package k23BE.Bookstore.domain;
 
-public class Book {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-	private String title, author;
-	private int publicationYear, isbn, price;
+@Entity
+public class Book {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private long id;
+	private String title, author, isbn;
+	private double price;
 	
-	public Book(String title, String author, int publicationYear, int isbn, int price) {
+	@Column(name="publication_year")
+	private int publicationYear;
+	
+	public Book() {
 		super();
+	}
+	
+	public Book(String title, String author, String isbn, double price, int year) {
+		super();	
 		this.title = title;
 		this.author = author;
-		this.publicationYear = publicationYear;
 		this.isbn = isbn;
 		this.price = price;
+		this.publicationYear = year;
 	}
 	
 	public String getTitle() {
@@ -26,29 +42,30 @@ public class Book {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public int getPublicationYear() {
-		return publicationYear;
-	}
-	public void setPublicationYear(int publicationYear) {
-		this.publicationYear = publicationYear;
-	}
-	public int getIsbn() {
+	public String getIsbn() {
 		return isbn;
 	}
-	public void setIsbn(int isbn) {
+	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(double price) {
 		this.price = price;
+	}
+	public int getYear() {
+		return publicationYear;
+	}
+	public void setYear(int year) {
+		this.publicationYear = year;
 	}
 	
 	@Override
 	public String toString() {
-		return "Book [title=" + title + ", author=" + author + ", publicationYear=" + publicationYear + ", isbn=" + isbn
-				+ ", price=" + price + "]";
+		return "Book [title=" + title + ", author=" + author + ", isbn=" + isbn + ", price=" + price
+				+ ", publicationYear=" + publicationYear + "]";
 	}
-	
+
+
 }
