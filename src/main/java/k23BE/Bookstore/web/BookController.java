@@ -11,19 +11,19 @@ import k23BE.Bookstore.domain.BookRepository;
 @Controller
 public class BookController {
 	
-	/*@Autowired
+	@Autowired
 	private BookRepository bookRepository;
-	*/
+	
 	
 	@GetMapping(value= "/main")
 	public String showMainPage() {
 		return "index";
 	}
 	
-	/* @RequestMapping(value = {"/booklist", "/"} )
+	@RequestMapping(value = { "/booklist", "/" } )
 	public String showBooklist(Model model) {
 		model.addAttribute("books", bookRepository.findAll());
 			return "booklist";
-	} */
+	}
 	
 }

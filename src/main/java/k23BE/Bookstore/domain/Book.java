@@ -1,6 +1,5 @@
 package k23BE.Bookstore.domain;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,21 +12,19 @@ public class Book {
 	private long id;
 	private String title, author, isbn;
 	private double price;
-	
-	@Column(name="publication_year")
 	private int publicationYear;
 	
 	public Book() {
 		super();
 	}
 	
-	public Book(String title, String author, String isbn, double price, int year) {
+	public Book(String title, String author, String isbn, double price, int publicationYear) {
 		super();	
 		this.title = title;
 		this.author = author;
 		this.isbn = isbn;
 		this.price = price;
-		this.publicationYear = year;
+		this.publicationYear = publicationYear;
 	}
 	
 	public String getTitle() {
@@ -54,11 +51,11 @@ public class Book {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public int getYear() {
+	public int getPublicationYear() {
 		return publicationYear;
 	}
-	public void setYear(int year) {
-		this.publicationYear = year;
+	public void setPublicationYear(int publicationYear) {
+		this.publicationYear = publicationYear;
 	}
 	
 	@Override
