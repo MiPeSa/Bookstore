@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<title>Add Book</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+<body>
+	<div>
+		<h1>Add new book</h1>
+		<div>
+			<form th:object="${book}" th:action="@{saveBook}" action="#" method="post">
+				<div class="form-group">
+					<label for="title">Title:</label>
+					<input type="text" class="form-control" id="title" th:field="*{title}" placeholder="Title" />			
+					<div th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Error</div>					
+				</div>
+				<div class="form-group">
+					<label for="author">Author:</label>
+					<input type="text" class="form-control" id="author" th:field="*{author}" placeholder="Author" />
+					<div th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Error</div>					
+
+				</div>
+				<div class="form-group">
+					<label for="isbn">ISBN:</label>
+					<input type="text" class="form-control" id="isbn" th:field="*{isbn}" placeholder="ISBN" />		
+				</div>
+				<div class="form-group">
+					<label for="publicationYear">Year:</label>
+					<input type="number" class="form-control" id="publicationYear" th:field="*{publicationYear}" />		
+				</div>
+				<div class="form-group">
+					<label for="price">Price:</label>
+					<input type="text" class="form-control" id="price" th:field="*{price}" />
+				</div>
+				<div class="form-group">
+					<label for="price">Category:</label>
+						<select id="category" th:field="*{category}">
+							<option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+						</select>
+				</div>
+				
+				<input class="btn btn-primary" type="submit" value="Save"></input>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
